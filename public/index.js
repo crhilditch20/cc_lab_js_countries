@@ -39,17 +39,9 @@ var filterCountriesByRegion = function(){
   var filtered = countries.filter(function(country){
     return (country.region === this.value);
   }.bind(this));
-  console.log(filtered);
     var select = document.querySelector('#country-list');
     select.innerHTML = "";
-    console.log(select);
-    filtered.forEach(function(countryObject){
-      var option = document.createElement('option'); 
-      option.innerText = countryObject.name; 
-      console.log(countryObject.name);
-      option.value = countryObject.name;
-      select.appendChild(option); 
-    });
+    populateList(filtered);
 }
 
 var requestComplete = function(){
